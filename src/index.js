@@ -1,13 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// 2 - IMPORTANDO O PROVIDER
+import { CounterContextProvider } from "./context/CounterContext";
+// 5 - IMPORTANDO UM CONTEXT MAIS COMPLEXO.
+import { TitleColorContextProvider } from "./context/TitleColorContext";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* 2 - CRIANDO PROVIDER */}
+    <CounterContextProvider>
+      <TitleColorContextProvider>
+        <App />
+      </TitleColorContextProvider>
+    </CounterContextProvider>
   </React.StrictMode>
 );
 
